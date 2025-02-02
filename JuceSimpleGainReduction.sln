@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio Version 17
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JuceSimpleGainReduction - Standalone Plugin", "JuceSimpleGainReduction_StandalonePlugin.vcxproj", "{66E5D956-DA0A-1794-8370-8B58ADF02DA8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9C820B6C-44C5-03CA-5E03-059E3C0697FB} = {9C820B6C-44C5-03CA-5E03-059E3C0697FB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JuceSimpleGainReduction - VST3", "JuceSimpleGainReduction_VST3.vcxproj", "{5DD5F96B-E903-F672-074A-F67CC889DB88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9C820B6C-44C5-03CA-5E03-059E3C0697FB} = {9C820B6C-44C5-03CA-5E03-059E3C0697FB}
+		{92219CB5-7250-20D9-F15A-1E44E2651AAF} = {92219CB5-7250-20D9-F15A-1E44E2651AAF}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JuceSimpleGainReduction - Shared Code", "JuceSimpleGainReduction_SharedCode.vcxproj", "{9C820B6C-44C5-03CA-5E03-059E3C0697FB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JuceSimpleGainReduction - VST3 Manifest Helper", "JuceSimpleGainReduction_VST3ManifestHelper.vcxproj", "{92219CB5-7250-20D9-F15A-1E44E2651AAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DD5F96B-E903-F672-074A-F67CC889DB88}.Debug|x64.ActiveCfg = Debug|x64
+		{5DD5F96B-E903-F672-074A-F67CC889DB88}.Debug|x64.Build.0 = Debug|x64
+		{5DD5F96B-E903-F672-074A-F67CC889DB88}.Release|x64.ActiveCfg = Release|x64
+		{5DD5F96B-E903-F672-074A-F67CC889DB88}.Release|x64.Build.0 = Release|x64
+		{66E5D956-DA0A-1794-8370-8B58ADF02DA8}.Debug|x64.ActiveCfg = Debug|x64
+		{66E5D956-DA0A-1794-8370-8B58ADF02DA8}.Debug|x64.Build.0 = Debug|x64
+		{66E5D956-DA0A-1794-8370-8B58ADF02DA8}.Release|x64.ActiveCfg = Release|x64
+		{66E5D956-DA0A-1794-8370-8B58ADF02DA8}.Release|x64.Build.0 = Release|x64
+		{9C820B6C-44C5-03CA-5E03-059E3C0697FB}.Debug|x64.ActiveCfg = Debug|x64
+		{9C820B6C-44C5-03CA-5E03-059E3C0697FB}.Debug|x64.Build.0 = Debug|x64
+		{9C820B6C-44C5-03CA-5E03-059E3C0697FB}.Release|x64.ActiveCfg = Release|x64
+		{9C820B6C-44C5-03CA-5E03-059E3C0697FB}.Release|x64.Build.0 = Release|x64
+		{92219CB5-7250-20D9-F15A-1E44E2651AAF}.Debug|x64.ActiveCfg = Debug|x64
+		{92219CB5-7250-20D9-F15A-1E44E2651AAF}.Debug|x64.Build.0 = Debug|x64
+		{92219CB5-7250-20D9-F15A-1E44E2651AAF}.Release|x64.ActiveCfg = Release|x64
+		{92219CB5-7250-20D9-F15A-1E44E2651AAF}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
