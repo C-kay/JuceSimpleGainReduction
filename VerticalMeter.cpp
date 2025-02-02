@@ -1,11 +1,16 @@
 #include "VerticalMeter.h"
 
-VerticalMeter::VerticalMeter() {}
+VerticalMeter::VerticalMeter()
+    : currentValue(0.0f) // start at 0 dB reduction
+{
+}
+
 VerticalMeter::~VerticalMeter() {}
 
 void VerticalMeter::setGainReduction(float dBValue)
 {
-    dBValue = juce::jlimit(-60.0f, 0.0f, dBValue);
+    // Now assume dBValue is positive (0 = no reduction, 60 = full reduction).
+    dBValue = juce::jlimit(0.0f, 60.0f, dBValue);
     if (dBValue != currentValue)
     {
         currentValue = dBValue;
@@ -20,17 +25,16 @@ void VerticalMeter::setGainReduction(double dBValue)
 
 void VerticalMeter::paint(juce::Graphics& g)
 {
-    auto bounds = getLocalBounds().toFloat();
+    auto fullBounds = getLocalBounds().toFloat();
     g.fillAll(juce::Colours::black);
 
-    // from -60 dB to 0 dB
-    float range = 60.0f;
-    float fraction = 1.0f - ((currentValue + 60.0f) / range); // 0.0 at 0 dB, 1.0 at -60 dB
-    fraction = juce::jlimit(0.0f, 1.0f, fraction);
+    // Map currentValue (0 to 60 dB) to a fraction (0 to 1).
+    float fraction = juce::jlimit(0.0f, 1.0f, currentValue / 60.0f);
+    float meterHeight = fullBounds.getHeight() * fraction;
+    juce::Rectangle<float> fillArea = fullBounds.withY(fullBounds.getBottom() - meterHeight)
+        .withHeight(meterHeight);
 
-    // fill region
-    auto meterHeight = bounds.getHeight() * fraction;
-    auto fillArea = bounds.removeFromBottom(meterHeight);
+    // Use a gradient from green (low reduction) to red (high reduction)
     juce::ColourGradient cg(juce::Colours::green,
         fillArea.getCentreX(), fillArea.getY(),
         juce::Colours::red,
@@ -39,10 +43,13 @@ void VerticalMeter::paint(juce::Graphics& g)
     g.setGradientFill(cg);
     g.fillRect(fillArea);
 
-    // draw outline
+    // Draw the outline.
     g.setColour(juce::Colours::grey);
-    g.drawRect(bounds.expanded(0.0f, meterHeight), 1.0f);
+    g.drawRect(fullBounds, 1.0f);
 
-    // Optional: draw tick marks e.g. -3, -6, etc.
-    // Implementation left to user – see the earlier snippet if needed!
+    // Optionally, draw the current gain reduction value.
+    g.setColour(juce::Colours::white);
+    g.setFont(14.0f);
+    g.drawFittedText(juce::String(currentValue, 1) + " dB", fullBounds.toNearestInt(),
+        juce::Justification::centred, 1);
 }

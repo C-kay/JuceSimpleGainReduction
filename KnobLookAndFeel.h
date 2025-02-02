@@ -15,4 +15,10 @@ public:
         float rotaryStartAngle,
         float rotaryEndAngle,
         juce::Slider& slider) override;
+
+    // Utility to draw ticks for e.g. 0%, 25%, 50%, 75%, 100%
+    void drawTickMarks(juce::Graphics& g,
+        float centreX, float centreY, float radius,
+        float startAngle, float angleRange,
+        juce::Slider& slider);
 };

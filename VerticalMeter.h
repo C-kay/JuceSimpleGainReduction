@@ -15,5 +15,10 @@ public:
 
 private:
     float currentValue = -60.0f;
+
+    void drawDbTicks(juce::Graphics& g);
+    void drawSingleTick(juce::Graphics& g, float db);
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VerticalMeter)
 };
+
