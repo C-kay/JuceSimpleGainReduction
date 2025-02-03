@@ -2,6 +2,8 @@
 
 A professional-grade compressor VST3 plugin developed using the JUCE framework. This plugin features an industry-standard gain reduction algorithm along with a modern, polished user interface that includes custom rotary knobs and a dynamic vertical gain reduction meter.
 
+![image](https://github.com/user-attachments/assets/c17bfcd5-7ca8-4ad9-a1fd-37ac46011efc)
+
 ## Features
 
 - **Real-Time Compression:**  
@@ -84,9 +86,6 @@ A professional-grade compressor VST3 plugin developed using the JUCE framework. 
 
 Contributions, feature requests, and bug reports are welcome! Please fork the repository, create a new branch for your changes, and submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
